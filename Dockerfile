@@ -16,4 +16,4 @@ RUN dotnet publish "Docker.csproj" -c Release -o /app
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app .
-ENTRYPOINT ["dotnet", "Docker.dll"]
+CMD ASPNETCORE_URLS=http://*:$PORT dotnet Docker.dll
