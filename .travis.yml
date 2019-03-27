@@ -2,9 +2,9 @@
 services:
   - docker
 before_install:
-  - docker build -t "$DOCKER_USERNAME"/pietrowebapp .
+  - docker build -t pietrowebapp .
 script:
-  - docker images "$DOCKER_USERNAME"/pietrowebapp  
+  - docker images pietrowebapp  
 after_success: 
   - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
-  - docker push "$DOCKER_USERNAME"/pietrowebapp;
+  - docker push pciaco/pietrowebapp;
