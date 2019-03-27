@@ -4,7 +4,8 @@ services:
 before_install:
   - docker build -t pciaco/pietrowebapp:latest .
 script:
-  - docker images tag pciaco/pietrowebapp  
+  - docker images pciaco/pietrowebapp
+  - docker tag pciaco/pietrowebapp pciaco/pietrowebapp
 after_success: 
   - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
   - docker push pciaco/pietrowebapp;
